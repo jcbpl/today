@@ -1,4 +1,4 @@
-wget --header "Authorization: Bearer ${DROPBOX_TOKEN}" \
+wget --header "Authorization: Bearer ${DROPBOX_ACCESS_TOKEN}" \
   --header "Dropbox-API-Arg: {\"path\": \"/_posts\"}" \
   --method POST \
   -O posts.zip \

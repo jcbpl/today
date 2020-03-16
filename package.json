@@ -1,0 +1,10 @@
+{
+  "name": "jacob.today",
+  "version": "1.0.0",
+  "description": "A writing project",
+  "author": "jcbpl",
+  "license": "MIT",
+  "dependencies": {
+    "node-fetch": "^2.6.0"
+  }
+}
