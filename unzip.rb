@@ -1,3 +1,5 @@
+require 'rubygems'
+require 'bundler/setup'
 require 'zip'
 
 Zip.on_exists_proc = true
