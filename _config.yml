@@ -18,3 +18,8 @@ defaults:
     values:
       layout: "post"
       permalink: /:year:month:day:slug
+
+exclude:
+  - build.sh
+  - netlify.toml
+  - unzip.rb
