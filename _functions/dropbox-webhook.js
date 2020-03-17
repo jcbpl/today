@@ -1,10 +1,22 @@
+const crypto = require("crypto")
 const fetch = require("node-fetch")
 
 exports.handler = async (event, context) => {
   const { headers, httpMethod, queryStringParameters } = event;
 
-  if (event.httpMethod === "POST" && event.headers["x-dropbox-signature"]) {
+  if (event.httpMethod === "POST") {
     console.log("Received webhook request")
+
+    const hmac = crypto.createHmac("sha256", process.env.DROPBOX_APP_SECRET)
+    hmac.update(event.body)
+
+    if (hmac.digest("hex") !== event.headers["x-dropbox-signature"]) {
+      console.log("Aborting due to invalid signature")
+
+      return {
+        statusCode: 401
+      }
+    }
 
     try {
       await fetch(process.env.BUILD_HOOK_URL, { method: "POST" })
