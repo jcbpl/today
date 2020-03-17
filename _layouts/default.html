@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>jacob.today</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
+  </head>
+  <body class="flex flex-column min-vh-100 pv2 ph3 pv4-ns ph5-ns avenir dark-gray">
+    <header>
+      <h1 class="f3 f2-ns dib">
+        {{ site.title }}
+      </h1>
+      <nav class="f5 f4-ns ml2 dib">
+      {% if page.url == "/" %}
+        <a href="/20200316141000" title="About">?</a>
+      {% else %}
+        <a href="/" title="Home">../</a>
+      {% endif %}
+      </nav>
+    </header>
+    <main class="flex-auto">
+      {{ content }}
+    </main>
+    <footer class="bottom-1">
+      <p class="lh-copy">
+        {{ site.description }}
+        {% if page.layout == "post" %}
+          This was saved at <time datetime="{{ post.date | date_to_xmlschema }}">{{ page.date | date: "%l:%M%P on %e %B %Y" }}</time>.
+        {% endif %}
+      </p>
+    </footer>
+  </body>
+</html>

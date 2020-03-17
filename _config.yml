@@ -6,7 +6,6 @@ twitter_username: jacobtoday
 github_username:  jcbpl
 
 # Build settings
-theme: minima
 plugins:
   - jekyll-feed
 
@@ -23,3 +22,5 @@ exclude:
   - build.sh
   - netlify.toml
   - unzip.rb
+
+timezone: America/Chicago

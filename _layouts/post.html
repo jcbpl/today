@@ -1,0 +1,16 @@
+---
+layout: default
+---
+
+<nav>
+  {% if page.previous.url %}
+    <a href="{{page.previous.url}}" title="Previous post">&larr;</a>
+  {% endif %}
+  {% if page.next.url %}
+    <a href="{{page.next.url}}" title="Next post">&rarr;</a>
+  {% endif %}
+</nav>
+
+<article class="f4 lh-copy measure-wide mt5">
+  {{ content }}
+</article>
