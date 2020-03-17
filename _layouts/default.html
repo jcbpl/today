@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="height:100%;">
   <head>
     <title>jacob.today</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
   </head>
-  <body class="flex flex-column min-vh-100 pv2 ph3 pv4-ns ph5-ns avenir dark-gray">
+  <body class="flex flex-column min-h-100 pv2 ph3 pv4-ns ph5-ns avenir dark-gray">
     <header>
       <h1 class="f3 f2-ns dib">
         {{ site.title }}
@@ -21,7 +21,7 @@
     <main class="flex-auto">
       {{ content }}
     </main>
-    <footer class="bottom-1">
+    <footer>
       <p class="lh-copy">
         {{ site.description }}
         {% if page.layout == "post" %}
