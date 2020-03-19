@@ -1,14 +1,15 @@
 ---
 layout: default
 ---
-<section class="mt4">
-  {% for post in site.posts %}
-    <article class="f4-ns lh-copy measure-wide mb5 mb6-ns">
-      {{ post.content }}
 
-      <time datetime="{{ post.date | date: '%Y-%m-%d' }}">
-        <a class="f6" href="{{ post.url }}">{{ post.date | date: "%-d %b" }}</a>
-      </time>
-    </article>
-  {% endfor %}
-</section>
+{% assign post = site.posts.first %}
+
+<article class="lh-copy measure-wide">
+  <h3 class="f6">
+    <time datetime="{{ post.date | date: '%Y-%m-%d' }}">
+      {{ post.date | date: "%B %-d" }}
+    </time>
+  </h3>
+
+  {{ post.content }}
+</article>

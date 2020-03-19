@@ -21,6 +21,8 @@ defaults:
 exclude:
   - build.sh
   - netlify.toml
+  - package.json
+  - package-lock.json
   - unzip.rb
 
 timezone: America/Chicago

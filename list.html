@@ -1,0 +1,39 @@
+---
+layout: default
+---
+
+<div class="cf mt2 mt4-ns">
+  {% for post in site.posts %}
+    {% assign current_month = post.date | date: "%m" %}
+    {% assign next_month = post.next.date | date: "%m" %}
+
+    {% if next_month != current_month %}
+      <div class="fl w-50 w-third-m w-20-l pr3 pb3" style="height: 11em">
+        <div class="ba bw2 br2 b--light-gray h-100 pa2 bg-light-gray">
+          <span class="f6 b">
+            {{ post.date | date: "%B %Y" }}
+          </span>
+        </div>
+      </div>
+    {% endif %}
+
+    <div class="fl w-50 w-third-m w-20-l pr3 pb3" style="height: 11em">
+        <div class="ba bw2 br2 b--light-gray h-100 pa2 relative">
+          <a class="db absolute absolute--fill" style="text-indent: -9999px;" href="{{ post.url }}">
+            Post on {{ post.date | date: "%B %e" }}
+          </a>
+
+          <div class="h-100 overflow-hidden" aria-hidden="true">
+            <time class="f6 b ttu" datetime="{{ post.date | date: '%Y-%m-%d' }}">
+              {{ post.date | date: "%e" }}
+            </time>
+
+            <div class="lh-copy" style="font-size: 0.75em">
+              {{ post.content }}
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  {% endfor %}
+</div>

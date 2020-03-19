@@ -5,29 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
   </head>
-  <body class="flex flex-column min-h-100 pv2 ph3 pv4-ns ph5-ns avenir dark-gray">
+
+  <body class="mw8 flex flex-column min-h-100 pv2 ph3 pv4-ns ph5-ns avenir dark-gray">
     <header>
       <h1 class="f3 f2-ns dib">
         {{ site.title }}
       </h1>
-      <nav class="f5 f4-ns ml2 dib">
-      {% if page.url == "/" %}
-        <a href="/20200316141000" title="About">?</a>
-      {% else %}
-        <a href="/" title="Home">../</a>
+      {% if page.path != "list.html" %}
+        <a class="f5 f4-ns ml2" href="/list" title="List">../</a>
       {% endif %}
-      </nav>
     </header>
+
     <main class="flex-auto">
       {{ content }}
     </main>
-    <footer>
-      <p class="lh-copy">
-        {{ site.description }}
-        {% if page.layout == "post" %}
-          This was saved at <time datetime="{{ post.date | date_to_xmlschema }}">{{ page.date | date: "%l:%M%P on %e %B %Y" }}</time>.
+
+    <footer class="pb3">
+      <nav class="mr3">
+        {% if page.previous.url %}
+          <a href="{{page.previous.url}}" title="Previous post">&larr;</a>
+        {% elsif page.url == "/" %}
+          <a href="{{site.posts[1].url}}" title="Previous post">&larr;</a>
         {% endif %}
-      </p>
+
+        {% if page.next.url %}
+          <a href="{{page.next.url}}" title="Next post">&rarr;</a>
+        {% endif %}
+      </nav>
     </footer>
   </body>
 </html>
