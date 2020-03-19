@@ -16,16 +16,16 @@
       {% endif %}
     </header>
 
-    <main class="flex-auto">
+    <main class="flex-auto-ns">
       {{ content }}
     </main>
 
-    <footer class="pb3">
-      <nav class="mr3">
+    <footer class="mb6 mb4-ns">
+      <nav>
         {% if page.previous.url %}
-          <a href="{{page.previous.url}}" title="Previous post">&larr;</a>
+          <a class="mr1" href="{{page.previous.url}}" title="Previous post">&larr;</a>
         {% elsif page.url == "/" %}
-          <a href="{{site.posts[1].url}}" title="Previous post">&larr;</a>
+          <a class="mr1" href="{{site.posts[1].url}}" title="Previous post">&larr;</a>
         {% endif %}
 
         {% if page.next.url %}
